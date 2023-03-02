@@ -1,0 +1,27 @@
+{
+    "name": "charitier",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "dotenv": "16.0.2",
+        "next": "13.2.3",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/adityanithariya/Charitier-server.git"
+    },
+    "author": "adityanithariya",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/adityanithariya/Charitier-server/issues"
+    },
+    "homepage": "https://github.com/adityanithariya/Charitier-server#readme"
+}
