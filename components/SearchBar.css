@@ -1,6 +1,10 @@
 .searchInputs {
     margin-top: 105px;
     display: flex;
+    margin-left: 35vw;
+    outline: 1px solid;
+    width: fit-content;
+    border-radius: 10px;
 }
 
 .search input {
