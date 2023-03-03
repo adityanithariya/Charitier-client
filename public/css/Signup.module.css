@@ -21,6 +21,7 @@
     display: grid;
     grid-template-columns: 35% 65%;
     gap: 1rem;
+    margin: 0.5rem;
 }
 .ele input {
     display: flex;
