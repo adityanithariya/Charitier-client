@@ -1,10 +1,12 @@
-import Main from "@components/Main";
-import styles from "@css/Home.module.css";
+import PostCard from "@components/PostCard";
+import Layout from "@/components/Layout";
+import PostFormCard from "@/components/PostFormCard";
 
 export default function Home() {
     return (
-        <div className={styles.root}>
-            <Main />
-        </div>
+        <>
+            <PostFormCard />
+            <PostCard />
+        </>
     );
 }
