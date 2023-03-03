@@ -1,18 +1,10 @@
 {
     "compilerOptions": {
         "paths": {
-            "@/*": [
-                "./*"
-            ],
-            "@css/*": [
-                "./public/css/*"
-            ],
-            "@images/*": [
-                "./public/images/*"
-            ],
-            "@components/*": [
-                "./components/*"
-            ],
+            "@/*": ["./*"],
+            "@css/*": ["./public/css/*"],
+            "@images/*": ["./public/images/*"],
+            "@components/*": ["./components/*"]
         }
     }
 }
