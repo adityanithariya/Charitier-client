@@ -1,61 +1,53 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SearchBar.css";
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
+var data = require("./MOCK_DATA.json");
 
-function SearchBar({ placeholder, data }) {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
+export default function App() {
+  const [value, setValue] = useState("");
 
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
+  const onChange = (event) => {
+    setValue(event.target.value);
   };
 
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
+  const onSearch = (searchTerm) => {
+    setValue(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
   };
 
   return (
-    <div className="search">
-      <div className="searchInputs">
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={wordEntered}
-          onChange={handleFilter}
-        />
-        <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
+    <div className="App">
+      
+
+      <div className="search-container">
+        <div className="search-inner">
+          <input type="text" value={value} onChange={onChange} />
+          <button onClick={() => onSearch(value)}> Search </button>
+        </div>
+        <div className="dropdown">
+          {data
+            .filter((item) => {
+              const searchTerm = value.toLowerCase();
+              const fullName = item.full_name.toLowerCase();
+// hh
+              return (
+                searchTerm &&
+                fullName.startsWith(searchTerm) &&
+                fullName !== searchTerm
+              );
+            })
+            .slice(0, 10)
+            .map((item) => (
+              <div
+                onClick={() => onSearch(item.full_name)}
+                className="dropdown-row"
+                key={item.full_name}
+              >
+                {item.full_name}
+              </div>
+            ))}
         </div>
       </div>
-      {filteredData.length != 0 && (
-        <div className="dataResult">
-          {filteredData.slice(0, 15).map((value, key) => {
-            return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
-              </a>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 }
-
-export default SearchBar;
