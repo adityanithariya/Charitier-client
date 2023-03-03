@@ -6,115 +6,118 @@ import styles from "@css/Signup.module.css";
 const NGO = () => {
     return (
         <>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-name">Name of ngo</label>
-                <input type="text" placeholder="Name of NGO" id="ngo-name" />
+            <div className="col-md-12">
+                <label htmlFor="inputname" className="form-label">
+                    Name of NGO
+                </label>
+                <input type="text" className="form-control" id="inputname" />
             </div>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-email">E-mail</label>
-                <input type="email" id="ngo-email" placeholder="Email" />
+            <div className="col-md-12">
+                <label htmlFor="inputEmail4" className="form-label">
+                    Email
+                </label>
+                <input type="email" className="form-control" id="inputEmail4" />
             </div>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-web-url">Wbsite URL</label>
-                <input type="url" placeholder="Website Url" id="ngo-web-url" />
-            </div>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-certificate">
-                    Registration Certificate
+
+            <div className="input-group align-center">
+                <label
+                    htmlFor="inputGroupFile04"
+                    className="form-label col-md-2"
+                >
+                    Pan card
                 </label>
                 <input
                     type="file"
-                    placeholder="Registration Certificate"
-                    id="ngo-certificate"
+                    className="form-control col-md-10"
+                    id="inputGroupFile04"
+                    aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload"
+                    // width={"70%"}
                 />
             </div>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-Act-Name">Account Name</label>
-                <input type="text" placeholder="Act Name" id="ngo-Act-Name" />
+            <div className="input-group flex ">
+                <label
+                    htmlFor="inputGroupFile05"
+                    className="form-label col-md-4"
+                >
+                    Registeration Certificate
+                </label>
+                <input
+                    type="file"
+                    className="form-control col-md-8"
+                    id="inputGroupFile05"
+                    aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload"
+                    // width={"70%"}
+                />
             </div>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-type">Type of Ngo</label>
+            <div className="col-12">
+                <label htmlFor="inputAddress" className="form-label">
+                    Address
+                </label>
                 <input
                     type="text"
-                    placeholder="Type of NGO"
-                    id="ngo-type"
-                />{" "}
+                    className="form-control"
+                    id="inputAddress"
+                    placeholder="1234 Main St"
+                />
             </div>
-            {/* Can be a dropdown*/}
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-pan">Pan Card</label>
-                <input type="file" placeholder="Pan Card" id="ngo-pan" />
-            </div>
-            <div classNameName={styles.ele}>
-                <label htmlhtmlFor="ngo-key">key issues</label>
-
-                <input type="text" placeholder="key issues" id="ngo-key" />
+            <div className="col-md-12">
+                <label htmlFor="inputname" className="form-label">
+                    Key Issues
+                </label>
+                <input type="text" className="form-control" id="inputname" />
             </div>
             <div>
-                <div classNameName={styles.ele}>
-                    <div>FCRA Details</div>
-                    <div>
-                        <input type="checkbox" id="isAvailable" />
-                        <label htmlhtmlFor="isAvailable">Is Available</label>
-                    </div>
-                </div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-Registration-No">
-                        Registration No
+                <div className="mb-2">FCRA Details</div>
+                <div className="form-check pl-10">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault"
+                    />
+                    <label
+                        className="form-check-label"
+                        htmlFor="flexCheckDefault"
+                    >
+                        Is Available
                     </label>
-
+                </div>
+                <div className="col-12 pl-10">
+                    <label htmlFor="inputReg" className="form-label">
+                        Registration No.
+                    </label>
                     <input
-                        type="number"
-                        placeholder="Registration No"
-                        id="ngo-Registration-No"
+                        type="text"
+                        className="form-control"
+                        id="inputReg"
+                        placeholder="1234 Main St"
                     />
                 </div>
             </div>
-            <div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-place">Place</label>
-
-                    <input type="text" placeholder="Place" id="ngo-place" />
-                </div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-city">City</label>
-
-                    <input type="text" placeholder="City" id="ngo-city" />
-                </div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-state">State</label>
-
-                    <input type="text" placeholder="State" id="ngo-state" />
-                </div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-pincode">Pincode</label>
-
-                    <input
-                        type="number"
-                        placeholder="Pincode"
-                        id="ngo-pincode"
-                    />
-                </div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-number">Number</label>
-
-                    <input
-                        type="number"
-                        placeholder="Phone Number"
-                        id="ngo-number"
-                    />
-                </div>
-                <div classNameName={styles.ele}>
-                    <label htmlhtmlFor="ngo-alt-number">AlterateNumber</label>
-
-                    <input
-                        type="number"
-                        placeholder="Phone Number"
-                        id="ngo-alt-number"
-                    />
-                </div>
-
-                {/* <input type="number" placeholder="Alt Phone Number" /> */}
+            <div className="col-md-6">
+                <label htmlFor="inputCity" className="form-label">
+                    City
+                </label>
+                <input type="text" className="form-control" id="inputCity" />
+            </div>
+            <div className="col-md-4">
+                <label htmlFor="inputState" className="form-label">
+                    State
+                </label>
+                <select id="inputState" className="form-select">
+                    <option>Select State</option>
+                    <option>Rajasthan</option>
+                    <option>up</option>
+                    <option>mp</option>
+                </select>
+            </div>
+            <div className="col-md-2">
+                <label htmlFor="inputZip" className="form-label">
+                    Pincode
+                </label>
+                <input type="text" className="form-control" id="inputZip" />
             </div>
         </>
     );
@@ -183,21 +186,35 @@ Member[4] members;
 const Family = () => {
     return (
         <>
-            <div className="col-md-6">
+            <div className="col-md-12">
                 <label htmlFor="inputEmail4" className="form-label">
                     Email
                 </label>
                 <input type="email" className="form-control" id="inputEmail4" />
             </div>
-            <div className="col-md-6">
-                <label htmlFor="inputPassword4" className="form-label">
-                    Password
+
+            <div className="input-group flex ">
+                <label
+                    htmlFor="inputGroupFile04"
+                    className="form-label col-md-2"
+                >
+                    Pan card
                 </label>
                 <input
-                    type="password"
-                    className="form-control"
-                    id="inputPassword4"
+                    type="file"
+                    className="form-control col-md-10"
+                    id="inputGroupFile04"
+                    aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload"
+                    // width={"70%"}
                 />
+                <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    id="inputGroupFileAddon04"
+                >
+                    upload
+                </button>
             </div>
             <div className="col-12">
                 <label htmlFor="inputAddress" className="form-label">
@@ -210,17 +227,7 @@ const Family = () => {
                     placeholder="1234 Main St"
                 />
             </div>
-            <div className="col-12">
-                <label htmlFor="inputAddress2" className="form-label">
-                    Address 2
-                </label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="inputAddress2"
-                    placeholder="Apartment, studio, or floor"
-                />
-            </div>
+
             <div className="col-md-6">
                 <label htmlFor="inputCity" className="form-label">
                     City
@@ -232,44 +239,51 @@ const Family = () => {
                     State
                 </label>
                 <select id="inputState" className="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                    <option>Select State</option>
+                    <option>Rajasthan</option>
+                    <option>up</option>
+                    <option>mp</option>
                 </select>
             </div>
             <div className="col-md-2">
                 <label htmlFor="inputZip" className="form-label">
-                    Zip
+                    Pincode
                 </label>
                 <input type="text" className="form-control" id="inputZip" />
-            </div>
-            <div className="col-12">
-                <div className="form-check">
-                    <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="gridCheck"
-                    />
-                    <label className="form-check-label" htmlFor="gridCheck">
-                        Check me out
-                    </label>
-                </div>
             </div>
         </>
     );
 };
 
 const Signup = () => {
-    const [typepOfAccount, setTypepOfAccount] = useState(false);
+    const [typeOfAccount, setTypeOfAccount] = useState(true);
     return (
         <>
             <h2 className={styles.heading}>Sign-up</h2>
             <div className="align-center">
                 <form className="row g-3">
-                    {typepOfAccount ? <NGO /> : <Family />}
+                    {typeOfAccount ? <NGO /> : <Family />}
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary">
+                        <button
+                            type="submit"
+                            className="btn btn-primary"
+                            style={{ backgroundColor: "#0d6efd" }}
+                        >
                             Sign in
                         </button>
+                    </div>
+                    <div
+                        style={{
+                            width: "50%",
+                            textAlign: "left",
+                            fontSize: "15px",
+                            color: "#0d6efd",
+                            textDecoration: "underline",
+                            cursor: "pointer",
+                        }}
+                        onClick={(e) => setTypeOfAccount(!typeOfAccount)}
+                    >
+                        {typeOfAccount ? "Sign in as Family" : "Sign in as NGO"}
                     </div>
                 </form>
             </div>

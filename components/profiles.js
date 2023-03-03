@@ -17,15 +17,18 @@ function Item(data){
                     <div className="flex" key={index}>
                      
                         <div className="item">
-                            <img src={value.img} alt="" />
+                            <a href="/" ><img src={value.img} alt="" /></a>
             
                             <div className="info">
-                                <h3 className='name text-dark'>{value.name}</h3>    
+                                <h4 className='name text-dark'>{value.name}</h4>    
                                 <span>{value.location}</span>
                             </div>                
                         </div>
-                        <div className="item">
-                            <span><p>Rs</p>{value.score}</span>
+                        <div className="item-1">
+                            <span id='price'><p>Rs  {value.score}</p></span>
+                        </div>
+                        <div className="post">
+                               <span><button class="btn btn-primary" type="submit">View Post</button></span>
                         </div>
                     </div>
                     )
