@@ -17,7 +17,7 @@ function Item(data){
                     <div className="flex" key={index}>
                      
                         <div className="item">
-                            <img src={value.img} alt="" />
+                            <a href="/" ><img src={value.img} alt="" /></a>
             
                             <div className="info">
                                 <h4 className='name text-dark'>{value.name}</h4>    
