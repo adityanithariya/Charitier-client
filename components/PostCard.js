@@ -30,7 +30,7 @@ export default function PostCard() {
                     <p>
                         <Link href={"/profile"}>
                             <span className="mr-1 font-semibold cursor-pointer hover:underline">
-                                John Doe
+                                Aditya Soni
                             </span>
                         </Link>
                         shared a <a className="text-socialBlue">album</a>
@@ -168,17 +168,31 @@ export default function PostCard() {
                 </div>
             </div>
             <div>
-                <p className="my-3 text-sm">
+                <p className="my-2 text-sm">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Asperiores, cum cupiditate deleniti ducimus et eveniet ex
                     excepturi fuga magnam, maiores nam pariatur quibusdam,
                     recusandae reprehenderit sapiente sed sint veniam? Beatae.
                 </p>
-                <div className="rounded-md overflow-hidden">
-                    <img
-                        src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                        alt=""
-                    />
+                <div className="heading-secondary my-2">
+                    Amount donated : <strong></strong>{" "}
+                </div>
+                <div className="align-center">
+                    <div style={{ fontSize: "13px" }}>Donation Progress</div>
+                    <div
+                        class="progress"
+                        role="progressbar"
+                        aria-label="Basic example"
+                        aria-valuenow="0"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        style={{ width: "100%" }}
+                    >
+                        <div
+                            className="progress-bar"
+                            style={{ width: "50%" }}
+                        ></div>
+                    </div>
                 </div>
             </div>
             <div className="mt-5 flex gap-8">
