@@ -76,10 +76,14 @@ const Signup = () => {
                         />
                     </div>
                     <div>
-                        <div>FCRA Details</div>
                         <div className={styles.ele}>
-                            <input type="checkbox" id="isAvailable" />
-                            <label htmlFor="isAvailable">Is Available</label>
+                            <div>FCRA Details</div>
+                            <div>
+                                <input type="checkbox" id="isAvailable" />
+                                <label htmlFor="isAvailable">
+                                    Is Available
+                                </label>
+                            </div>
                         </div>
                         <div className={styles.ele}>
                             <label htmlFor="ngo-Registration-No">
