@@ -1,76 +1,81 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-const { abi } = require("@artifacts/contracts/NGO.sol/NGOContract.json");
-import { ethers } from "ethers";
-import address from "../../../server/scripts/cache/address.json";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "@css/Connect.module.css";
+import mainContext from "../context/mainContext";
+
 
 const Connect = () => {
+
+    const { setAccountType, accountType, mainSignUp, pageUseEffect } = useContext(mainContext); 
+
     useEffect(() => {
-        if (window.ethereum) {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            setProvider(provider);
-            let contract = {};
-            let NGOContract = new ethers.Contract(
-                address["NGOContract"],
-                abi,
-                provider
-            );
-            let FamilyContract = new ethers.Contract(
-                address["FamilyContract"],
-                abi,
-                provider
-            );
-            let AdminContract = new ethers.Contract(
-                address["AdminContract"],
-                abi,
-                provider
-            );
-            contract.AdminContract = AdminContract;
-            contract.FamilyContract = FamilyContract;
-            contract.NGOContract = NGOContract;
-            setContract(contract);
-            console.log(provider);
-        }
+        // if (window.ethereum) {
+        //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+        //     setProvider(provider);
+        //     let contract = {};
+        //     let NGOContract = new ethers.Contract(
+        //         address["NGOContract"],
+        //         abi,
+        //         provider
+        //     );
+        //     let FamilyContract = new ethers.Contract(
+        //         address["FamilyContract"],
+        //         abi,
+        //         provider
+        //     );
+        //     let AdminContract = new ethers.Contract(
+        //         address["AdminContract"],
+        //         abi,
+        //         provider
+        //     );
+        //     contract.AdminContract = AdminContract;
+        //     contract.FamilyContract = FamilyContract;
+        //     contract.NGOContract = NGOContract;
+        //     setContract(contract);
+        // }
+        pageUseEffect(); 
     }, []);
 
-    const [provider, setProvider] = useState(null);
-    const [contract, setContract] = useState(null);
-    const [accountType, setAccountType] = useState("Select Account Type");
-    const [user, setUser] = useState(null);
+    // const [provider, setProvider] = useState(null);
+    // const [contract, setContract] = useState(null);
+    // const [accountType, setAccountType] = useState("Select Account Type");
+    // const [user, setUser] = useState(null); 
 
     const signUp = async () => {
-        if (accountType !== "Select Account Type") {
-            if (window.ethereum) {
-                await provider.send("eth_requestAccounts", []);
+        // if (accountType !== "Select Account Type") {
+        //     if (window.ethereum) {
+        //         await provider.send("eth_requestAccounts", []);
 
-                let signers = provider.getSigner();
-                try {
-                    if (accountType === "Admin") {
-                        setUser(contract.AdminContract.connect(signers));
-                        await user.isAdmin();
-                    } else if (accountType === "NGO") {
-                        setUser(contract.NGOContract.connect(signers));
-                        await user.isNGOFunc();
-                    } else if (accountType === "Family") {
-                        setUser(contract.FamilyContract.connect(signers));
-                        await user.isFamilyFunc();
-                    }
-                } catch (err) {
-                    if (err.message.includes("Account doesn't exist")) {
-                        if (accountType === "NGO") {
-                            window.location.href =
-                                "http://localhost:3000/signup?true";
-                        } else
-                            window.location.href =
-                                "http://localhost:3000/signup?false";
-                    }
-                }
-            } else {
-                document.getElementById("toggleModal").click();
-            }
-        }
+        //         let signers = provider.getSigner();
+        //         try {
+        //             if (accountType === "Admin") {
+        //                 let user = contract.AdminContract.connect(signers);
+        //                 await user.isAdmin();
+        //             } else if (accountType === "NGO") {
+        //                 let user = contract.NGOContract.connect(signers);
+        //                 await user.isNGOFunc();
+        //             } else if (accountType === "Family") {
+        //                 let user = contract.FamilyContract.connect(signers);
+        //                 await user.isFamilyFunc();
+        //             }
+        //         } catch (err) {
+        //             if (err.message.includes("Account doesn't exist")) {
+        //                 if (accountType === "NGO") {
+        //                     window.location.href =
+        //                         "http://localhost:3000/signup?true";
+        //                 } else
+        //                     window.location.href =
+        //                         "http://localhost:3000/signup?false";
+        //             }
+        //         }
+        //     } else {
+        //         document.getElementById("toggleModal").click();
+        //     }
+        // }
+
+        mainSignUp()
+
     };
 
     return (
