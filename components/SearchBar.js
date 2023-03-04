@@ -1,51 +1,52 @@
 import { useState } from "react";
 import "./SearchBar.css";
-var data = require("./MOCK_DATA.json");
+var data = require("../data.json");
 
 export default function App() {
-  const [value, setValue] = useState("");
 
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
+  const [value, setValue] = useState(''); 
+  const [filterdata,setfilterdata] = useState([]); 
 
-  const onSearch = (searchTerm) => {
-    setValue(searchTerm);
-    // our api to fetch the search result
-    console.log("search ", searchTerm);
-  };
+  const handleChange = (event) =>{
+    setValue(event.target.value); 
+  }
 
+  const Search = (event) =>{
+
+    event.preventDefault(); 
+    const newfilterdata = data.filter((user)=>{ 
+        if(user.name.includes(value)){
+          return true; 
+        }if(user.email.includes(value)){
+          return true; 
+        } if(user.Address.includes(value)){
+          return true; 
+        } if(user.city.includes(value)){
+          return true; 
+        } if(user.state.includes(value)){
+          return true; 
+        } if(user.key_issues.includes(value)){
+          return true; 
+        } if(user.phone_number.includes(value)){
+          return true; 
+        } if(user.achivements.includes(value)){
+          return true; 
+        }
+    }); 
+    console.log(newfilterdata)
+    setfilterdata(newfilterdata); 
+
+  }
+
+
+
+ 
   return (
     <div className="App">
-      
-
       <div className="search-container">
         <div className="search-inner">
-          <input type="text" value={value} onChange={onChange} />
-          <button onClick={() => onSearch(value)}> Search </button>
-        </div>
-        <div className="dropdown">
-          {data
-            .filter((item) => {
-              const searchTerm = value.toLowerCase();
-              const fullName = item.full_name.toLowerCase();
-// hh
-              return (
-                searchTerm &&
-                fullName.startsWith(searchTerm) &&
-                fullName !== searchTerm
-              );
-            })
-            .slice(0, 10)
-            .map((item) => (
-              <div
-                onClick={() => onSearch(item.full_name)}
-                className="dropdown-row"
-                key={item.full_name}
-              >
-                {item.full_name}
-              </div>
-            ))}
+          <input value={value}  type="text" onChange={handleChange} />
+          <button onClick={Search}> Search </button>
         </div>
       </div>
     </div>

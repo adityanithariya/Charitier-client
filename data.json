@@ -1,0 +1,14 @@
+[
+    {
+        "name": "NGO Name",
+        "email": "mail@gmail.com",
+        "Address": "Address",
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "pincode": 302031,
+        "phone_number": "1234567890",
+        "achivements": "12345ytrewsdfhgf",
+        "FCRA": true,
+        "key_issues": "Children"
+    }
+]
