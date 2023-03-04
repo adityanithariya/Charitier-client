@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@css/Signup.module.css";
 
 const NGO = () => {
@@ -17,39 +17,6 @@ const NGO = () => {
                     Email
                 </label>
                 <input type="email" className="form-control" id="inputEmail4" />
-            </div>
-
-            <div className="input-group align-center">
-                <label
-                    htmlFor="inputGroupFile04"
-                    className="form-label col-md-2"
-                >
-                    Pan card
-                </label>
-                <input
-                    type="file"
-                    className="form-control col-md-10"
-                    id="inputGroupFile04"
-                    aria-describedby="inputGroupFileAddon04"
-                    aria-label="Upload"
-                    // width={"70%"}
-                />
-            </div>
-            <div className="input-group flex ">
-                <label
-                    htmlFor="inputGroupFile05"
-                    className="form-label col-md-4"
-                >
-                    Registeration Certificate
-                </label>
-                <input
-                    type="file"
-                    className="form-control col-md-8"
-                    id="inputGroupFile05"
-                    aria-describedby="inputGroupFileAddon04"
-                    aria-label="Upload"
-                    // width={"70%"}
-                />
             </div>
             <div className="col-12">
                 <label htmlFor="inputAddress" className="form-label">
@@ -96,6 +63,12 @@ const NGO = () => {
                     />
                 </div>
             </div>
+            <div className="col-md-12">
+                <label htmlFor="inputAch" className="form-label">
+                    Achivements
+                </label>
+                <input type="url" className="form-control" id="inputAch" />
+            </div>
             <div className="col-md-6">
                 <label htmlFor="inputCity" className="form-label">
                     City
@@ -118,6 +91,12 @@ const NGO = () => {
                     Pincode
                 </label>
                 <input type="text" className="form-control" id="inputZip" />
+            </div>
+            <div className="col-md-12">
+                <label htmlFor="inputUrl" className="form-label">
+                    Website Url
+                </label>
+                <input type="url" className="form-control" id="inputUrl" />
             </div>
         </>
     );
@@ -255,8 +234,46 @@ const Family = () => {
     );
 };
 
-const Signup = () => {
-    const [typeOfAccount, setTypeOfAccount] = useState(true);
+const Signup = (props) => {
+    useEffect(() => {
+        setTypeOfAccount(Boolean(window.location.search.split("?")[1]));
+    }, []);
+
+    const submitNGO = async () => {
+        console.log(user.address);
+        const args = [
+            [
+                this.account.address,
+                "uid",
+                "reg_no",
+                123,
+                "pan_card",
+                ["place", "city", "state", 302031],
+                false,
+                true,
+            ],
+            "reg_cert",
+            "act_name",
+            this.account.address,
+            "type_of_NGO",
+            "name",
+            ["key_issues", ["place", "city", "state", 302031]],
+            [true, 123],
+            "achievements",
+            [
+                ["place", "city", "state", 302031],
+                [91, 1234567890],
+                [91, 1234567890],
+                "mail.com",
+                123,
+            ],
+            "mywebsite.com",
+        ];
+        await user.createNGO(...args);
+    };
+    const submitFamily = () => {};
+
+    const [typeOfAccount, setTypeOfAccount] = useState();
     return (
         <>
             <h2 className={styles.heading}>Sign-up</h2>
@@ -265,9 +282,9 @@ const Signup = () => {
                     {typeOfAccount ? <NGO /> : <Family />}
                     <div className="col-12">
                         <button
-                            type="submit"
                             className="btn btn-primary"
                             style={{ backgroundColor: "#0d6efd" }}
+                            onClick={typeOfAccount ? submitNGO : submitFamily}
                         >
                             Sign in
                         </button>

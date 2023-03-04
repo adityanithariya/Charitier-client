@@ -4,7 +4,8 @@
             "@/*": ["./*"],
             "@css/*": ["./public/css/*"],
             "@images/*": ["./public/images/*"],
-            "@components/*": ["./components/*"]
+            "@components/*": ["./components/*"],
+            "@artifacts/*": ["./artifacts/*"],
         }
     }
 }
